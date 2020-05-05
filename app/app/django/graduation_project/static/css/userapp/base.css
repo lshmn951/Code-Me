@@ -1,0 +1,159 @@
+/*
+ * Base structure
+ */
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: #8ac4ca;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+/*
+ * Table
+ */
+table.ts {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+}
+
+table.ts thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #369;
+  border-bottom: 3px solid #036;
+}
+
+table.ts tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+
+table.ts td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+/*
+ * Bootstrap
+ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0
+}
+
+.card-body {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+@media (min-width:1200px) {
+    .container {
+        max-width: 960px
+    }
+}
+
+/*
+ * Color
+ */
+.color-lightgreen {
+    color: lightgreen;
+}
+
+.color-limegreen {
+    color: limegreen;
+}
+
+.color-lightseagreen {
+    color: lightseagreen;
+}
+
+.color-orange {
+    color: orange;
+}
+
+.color-chartreuse {
+    color: chartreuse;
+}
+
+.color-darkcyan {
+    color: darkcyan;
+}
+
+.color-bg-darkcyan {
+    background-color: darkcyan;
+}
+
+.color-crimson {
+    color: crimson;
+}
+
+.color-red {
+    color: red;
+}
+
+/*
+ * Font size by FontAwesome
+ */
+.fa-fs-xs {
+    font-size: 0.75em;
+}
+
+.fa-fs-sm {
+    font-size: 0.875em;
+}
+
+.fa-fs-lg {
+    font-size: 1.33em;
+}
+
+.fa-fs-2x {
+    font-size: 2em;
+}
+
+.fa-fs-3x {
+    font-size: 3em;
+}
+
+.fa-fs-4x {
+    font-size: 4em;
+}
+
+.fa-fs-5x {
+    font-size: 5em;
+}
+
+.fa-fs-6x {
+    font-size: 6em;
+}
+
+.fa-fs-7x {
+    font-size: 7em;
+}
+
+.fa-fs-8x {
+    font-size: 8em;
+}
+
+.fa-fs-9x {
+    font-size: 9em;
+}
+
+.fa-fs-10x {
+    font-size: 10em;
+}

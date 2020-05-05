@@ -1,0 +1,169 @@
+{% extends 'userapp/base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+
+{% block TITLE_SETTING %}
+<title>Code Me | {{user_info.name}}</title>
+{% endblock TITLE_SETTING %}
+
+
+{% block HEADER_CONTENT %}
+<header>
+	<nav class="navbar navbar-expand-lg navbar-dark">
+		<a class="navbar-brand" href="/">CodeMe</a>
+		<form class="form-inline ml-auto" method="GET" action="{% url 'user_search' %}">
+			<div class="form-group rounded-pill bg-white pl-3 mx-auto">
+				<label for="username" class="sr-only">User</label>
+				<div class="input-group">
+					<input type="text" name="username" class="form-control border-0 shadow-none" placeholder="Baekjoon User Name" maxlength="20">
+					<div class="input-group-append search-button">
+						<button type="submit" class="btn"><i class="fas fa-search"></i></button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</nav>
+</header>
+{% endblock HEADER_CONTENT %}
+
+
+{% block MAIN_CONTENT %}
+<main>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-lg-4 px-1">
+                <div class="card bg-white h-100">
+                    <div class="card-body">
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4">
+                                <img src="{% static 'img/tier/cloud.png' %}">
+                            </div>
+                            <div class="col-8">
+                                <span class="text-black">{{user_info.name}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text-center color-orange">
+                                <i class="fas fa-crown fa-fw"></i>점수
+                            </div>
+                            <div class="col-8 text-right pr-4">
+                                {{user_info.rating|intcomma}}점
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text-center color-limegreen">
+                                <i class="fas fa-check fa-fw"></i>정답
+                            </div>
+                            <div class="col-8 text-right pr-4">
+                                {{user_solved_problem_list|length|intcomma}}개
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text-center color-crimson">
+                                <i class="fas fa-times fa-fw"></i>오답
+                            </div>
+                            <div class="col-8 text-right pr-4">
+                                {{user_failed_problem_list|length|intcomma}}개
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text-center color-lightseagreen">
+                                <i class="fas fa-award fa-fw"></i>랭킹
+                            </div>
+                            <div class="col-8 text-right pr-4">
+                                {{user_rank}}등
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-round btn-block color-bg-darkcyan text-white" onClick="location.href='./user?username={{user_info.name}}'">LAST UPDATE: {{time_gap}}
+                                </button>
+                            </div>
+                        </div>
+						
+                        <a href="https://www.acmicpc.net/problem/{{user_recommend}}">
+							<div class="row mt-3">
+								<div class="col-12">
+									<button type="button" class="btn btn-round btn-block color-bg-darkcyan text-white">문제 추천</button>
+								</div>
+							</div>
+						</a>
+                    </div>
+                </div>
+            </div>
+
+			<div class="col-lg-8 px-1">
+				<div class="card bg-white h-100">
+					<div class="card-body">
+                        <div class="text-black text-center">Algorithm Classification</div>
+                        <div style="text-align : center;">
+                            <img src="{% static 'img/tier/chart.png' %}">
+                        </div>
+				  <!-- <input type="button" value="Add data" onclick="adddata()"> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row mt-2">
+			<div class="col-6 px-1">
+				<div class="card bg-white h-100">
+
+				<div class="text-left" style="padding: 10px; font-weight: bold; vertical-align: top; color: #369;">Solved</div>
+
+				<div class="card-body" style="height:450px; overflow:auto">
+					<table class="ts">
+					<thead>
+						<tr>
+							<th scope="cols">문제 번호</th>
+							<th scope="cols">문제 이름</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for uspnum, uspname in user_solved_problem_list %}
+						<tr>
+							<th scope="row">{{uspnum}}</th>
+							<td>{{uspname}}</td>
+						<tr>
+                        {% endfor %}
+					</tbody>
+					</table>
+				</div>
+				</div>
+			</div>
+
+			<div class="col-6 px-1">
+				<div class="card bg-white h-100">
+
+				<div class="text-left" style="padding: 10px; font-weight: bold; vertical-align: top; color: #369;">Failed</div>
+
+				<div class="card-body" style="height: 450px; overflow:auto">
+					<table class="ts">
+					<thead>
+						<tr>
+							<th scope="cols">문제 번호</th>
+							<th scope="cols">문제 이름</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for ufpnum, ufpname in user_failed_problem_list %}
+						<tr>
+							<th scope="row">{{ufpnum}}</th>
+							<td>{{ufpname}}</td>
+						<tr>
+                        {% endfor %}
+					</tbody>
+					</table>
+				</div>
+				</div>
+			</div>
+		</div>
+
+    </div>
+</main>
+{% endblock MAIN_CONTENT %}
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+    "DJANGO_SECRET_KEY": "5zt$0-(rgtgj^wx9jpbkl-@hqn_oz%gu$evzck#55gqwgk@g$e",
+    "DB_NAME": "graduationdb",
+    "DB_USER": "gradpostgre",
+    "DB_PASSWORD": "dlawhdlqor200",
+    "DB_HOST": "grad-db.cbqy6xvaiqrp.ap-northeast-2.rds.amazonaws.com",
+    "DB_PORT": "5432"
+}

@@ -1,0 +1,36 @@
+{% extends 'userapp/base.html' %}
+{% load staticfiles %}
+
+
+{% block TITLE_SETTING %}
+<title>Code Me</title>
+{% endblock TITLE_SETTING %}
+
+
+{% block CSS_SETTING %}
+<link rel="stylesheet" href="{% static 'css/userapp/index.css' %}">
+{% endblock CSS_SETTING %}
+
+
+{% block MAIN_CONTENT %}
+<main role="main" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row px-3">
+            <img class="img-fluid d-block mx-auto" src="{% static 'img/designed_logo.png' %}" alt="Designed Logo Image">
+        </div>
+        <div class="row">
+            <form class="form-inline w-100" method="GET" action="{% url 'user_search' %}">
+                <div class="form-group rounded-pill bg-white w-50 pl-3 mx-auto">
+                    <label for="username" class="sr-only">User</label>
+                    <div class="input-group w-100">
+                        <input type="text" name="username" class="form-control border-0 shadow-none" placeholder="Baekjoon User Name" maxlength="20">
+                        <div class="input-group-append search-button">
+                            <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock MAIN_CONTENT %}
